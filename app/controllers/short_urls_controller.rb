@@ -1,4 +1,5 @@
 require 'url_shortener'
+require 'url_expander'
 
 class ShortUrlsController < ApplicationController
  
@@ -7,6 +8,6 @@ class ShortUrlsController < ApplicationController
   end
 
   def show
-  	render :text => ""
+  	render :text => UrlExpander.expand(params[:id])
   end
 end

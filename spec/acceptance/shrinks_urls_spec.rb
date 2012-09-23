@@ -21,8 +21,13 @@ describe "Shrinking URLs" do
 
   Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
   When(:short_url) { shrink(long_url) }
-  Then { short_url.should == "http://shrinkwrap.herokuapp.com/shorturl" }
   
-  When(:unshrunk_url) { unshrink(short_url) }
-  Then { unshrunk_url.should == long_url }
+  context "Shrinking a URL" do
+    Then { short_url.should == "http://shrinkwrap.herokuapp.com/shorturl" }
+  end
+
+  context "Unshrinking a URL" do   
+    When(:unshrunk_url) { unshrink(short_url) }
+    Then { unshrunk_url.should == long_url }
+  end
 end
