@@ -10,11 +10,11 @@ describe "Shrinking URLs" do
   end
   
   def shrink(url) 
-	post "http://shrinkwrap.herokuapp.com", :url => url
-	last_request.body.read   
+	  post "http://shrinkwrap.herokuapp.com", :url => url
+    last_response.body
   end
 
-  Given(:url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
-  When(:result) { shrink(url) }
-  Then { result =~ "http://shrinkwrap.herokuapp.com/shorturl" }
+  Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
+  When(:short_url) { shrink(long_url) }
+  Then { short_url.should == "http://shrinkwrap.herokuapp.com/shorturl" }
 end
