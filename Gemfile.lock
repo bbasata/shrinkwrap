@@ -51,6 +51,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    radix (2.0.1)
     rails (3.2.7)
       actionmailer (= 3.2.7)
       actionpack (= 3.2.7)
@@ -100,6 +101,7 @@ PLATFORMS
 
 DEPENDENCIES
   pg
+  radix (~> 2.0.1)
   rails (= 3.2.7)
   rspec-given (~> 2.0.0)
   rspec-rails (~> 2.11.0)

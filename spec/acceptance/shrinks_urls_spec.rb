@@ -22,7 +22,7 @@ describe "Shrinking URLs" do
   context "Shrinking a URL" do
     Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
     When(:short_url) { shrink(long_url) }
-    Then { short_url.should == "http://shrinkwrap.herokuapp.com/shorturl" }
+    Then { short_url.should =~ %r|http://shrinkwrap.herokuapp.com/[A-Z0-9]{1,6}| }
   end
 
   context "Unshrinking a URL" do   
