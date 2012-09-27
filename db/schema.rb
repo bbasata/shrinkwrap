@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923022034) do
+ActiveRecord::Schema.define(:version => 20120927020423) do
+
+  create_table "globally_unique_numbers", :force => true do |t|
+    t.integer "last_value"
+  end
 
   create_table "url_mappings", :force => true do |t|
     t.string   "long_url"
