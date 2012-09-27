@@ -22,7 +22,7 @@ describe "Shrinking URLs" do
   context "Shrinking a URL" do
     Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
     When(:short_url) { shrink(long_url) }
-    Then { short_url.should =~ %r|http://shrinkwrap.herokuapp.com/[A-Z0-9]{1,6}| }
+    Then { short_url.should =~ %r|http://shrinkwrap.herokuapp.com/[A-Z0-9]{1,7}| }
   end
 
   context "Unshrinking a URL" do   
@@ -48,7 +48,7 @@ describe "Shrinking URLs" do
     Then { short_urls.uniq.should have(1).distinct_urls }
   end
 
-  context "Correcting mistakes in transcription of 'I' as '1' and 'O' as '0" do
+  context "Correcting mistakes in transcription of 'I' as '1' and 'O' as '0'" do
     it "corrects mistakes" do
       url_mapping = UrlMapping.create!(:short_path => 'ORIGAMI', :long_url => 'http://origami.example.com')
       unshrunk_url = unshrink("/0R1GAM1")
