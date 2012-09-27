@@ -8,7 +8,8 @@ class ShortUrlsController < ApplicationController
   end
 
   def show
-  	render :text => UrlMapping.find_by_short_path(params[:short_path]).long_url
+    normalized_short_path = NumberEncoder.normalize(params[:short_path])
+  	render :text => UrlMapping.find_by_short_path(normalized_short_path).long_url
   end
 
   private

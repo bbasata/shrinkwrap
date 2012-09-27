@@ -47,4 +47,12 @@ describe "Shrinking URLs" do
     ] }
     Then { short_urls.uniq.should have(1).distinct_urls }
   end
+
+  context "Correcting mistakes in transcription of 'I' as '1' and 'O' as '0" do
+    it "corrects mistakes" do
+      url_mapping = UrlMapping.create!(:short_path => 'ORIGAMI', :long_url => 'http://origami.example.com')
+      unshrunk_url = unshrink("/0R1GAM1")
+      unshrunk_url.should == url_mapping.long_url
+    end
+  end
 end
