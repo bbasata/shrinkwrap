@@ -41,6 +41,10 @@ describe "Shrinking URLs" do
   end
 
   context "Shrinking the same URL twice" do
-    pending "produces the same short URL"
+    Given(:short_urls) { [
+      shrink("https://github.com/bbasata/shrinkwrap/blob/master/Gemfile"),
+      shrink("https://github.com/bbasata/shrinkwrap/blob/master/Gemfile")
+    ] }
+    Then { short_urls.uniq.should have(1).distinct_urls }
   end
 end

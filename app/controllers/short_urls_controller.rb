@@ -3,7 +3,7 @@ require 'url_shortener'
 class ShortUrlsController < ApplicationController
  
   def create
-  	url_mapping = UrlMapping.create!(UrlShortener.shorten(params[:url]))
+  	url_mapping = UrlMapping.find_or_create(UrlShortener.shorten(params[:url]))
    	render :text => url(url_mapping.short_path)
   end
 
