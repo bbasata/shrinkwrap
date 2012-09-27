@@ -8,6 +8,6 @@ class ShortUrlsController < ApplicationController
   end
 
   def show
-  	render :text => UrlExpander.expand(params[:id])
+  	render :text => UrlMapping.find_by_short_path(params[:short_path]).long_url
   end
 end

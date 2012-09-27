@@ -1,3 +1,4 @@
 Shrinkwrap::Application.routes.draw do
-  resources :short_urls, :only => [ :show, :create ], :path => ""
+  get '/:short_path' => 'short_urls#show'
+  post '/' => 'short_urls#create'
 end
