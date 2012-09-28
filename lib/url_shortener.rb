@@ -1,3 +1,5 @@
+require 'number_encoder'
+
  module UrlShortener
    def self.shorten(long_url)
    	 unique_number = GloballyUniqueNumber.next
