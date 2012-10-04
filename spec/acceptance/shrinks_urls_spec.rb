@@ -6,11 +6,11 @@ describe "Shrinking URLs" do
   include Rack::Test::Methods
 
   def app
-  	Shrinkwrap::Application
+    Shrinkwrap::Application
   end
   
   def shrink(url) 
-	  post "/", :url => url
+    post "/", :url => url
     last_response.body
   end
 

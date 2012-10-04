@@ -3,13 +3,13 @@ require 'url_shortener'
 class ShortUrlsController < ApplicationController
  
   def create
-  	url_mapping = UrlMapping.find_or_create(UrlShortener.shorten(params[:url]))
-   	render :text => url(url_mapping.short_path)
+    url_mapping = UrlMapping.find_or_create(UrlShortener.shorten(params[:url]))
+    render :text => url(url_mapping.short_path)
   end
 
   def show
     normalized_short_path = NumberEncoder.normalize(params[:short_path])
-  	render :text => UrlMapping.find_by_short_path(normalized_short_path).long_url
+    render :text => UrlMapping.find_by_short_path(normalized_short_path).long_url
   end
 
   private

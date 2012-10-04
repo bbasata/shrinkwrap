@@ -11,12 +11,12 @@ describe NumberEncoder do
     end
 
     it 'produces a lexicographically larger value for a larger number' do
-    	encode(1_000_000_000).should be > encode(999_999_999)
+      encode(1_000_000_000).should be > encode(999_999_999)
     end
 
     it 'uses the alphabet 0-9 and A-Z except the numbers 0 and 1, to avoid confusion with the letters O and I' do
       exclusions = ['0', '1']
-  	  expected_alphabet = ('0'..'9').to_a + ('A'..'Z').to_a - exclusions
+      expected_alphabet = ('0'..'9').to_a + ('A'..'Z').to_a - exclusions
 
       first_encodings = Array.new(expected_alphabet.length) { |number| encode(number) }
       alphabet = first_encodings.map(&:chars).map(&:to_a).flatten.uniq
