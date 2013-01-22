@@ -3,13 +3,11 @@ development:
   encoding: unicode
   database: shrinkwrap_development
   pool: 5
-  username: shrinkwrap
-  password:
+  host: localhost
 
 test:
   adapter: postgresql
   encoding: unicode
   database: shrinkwrap_test
   pool: 5
-  username: shrinkwrap
-  password:
+  host: localhost

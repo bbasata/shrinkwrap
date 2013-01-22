@@ -8,8 +8,8 @@ describe "Shrinking URLs" do
   def app
     Shrinkwrap::Application
   end
-  
-  def shrink(url) 
+
+  def shrink(url)
     post "/", :url => url
     last_response.body
   end
@@ -22,10 +22,10 @@ describe "Shrinking URLs" do
   context "Shrinking a URL" do
     Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
     When(:short_url) { shrink(long_url) }
-    Then { short_url.should =~ %r|http://shrinkwrap.herokuapp.com/[A-Z0-9]{1,7}| }
+    Then { short_url.should =~ %r|http://shrinkwrap\.herokuapp\.com/[A-Z0-9]{1,7}| }
   end
 
-  context "Unshrinking a URL" do   
+  context "Unshrinking a URL" do
     Given(:long_url) { "https://github.com/bbasata/shrinkwrap/tree/walking-skeleton" }
     Given(:short_url) { shrink(long_url) }
     When(:unshrunk_url) { unshrink(short_url) }
