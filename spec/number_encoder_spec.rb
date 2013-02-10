@@ -5,7 +5,7 @@ describe NumberEncoder do
     def encode(number)
       NumberEncoder.encode(number)
     end
-  
+
     it 'produces a short string given a large number' do
       encode(1_000_000_000).length.should be <= 7 
     end
@@ -20,7 +20,7 @@ describe NumberEncoder do
 
       first_encodings = Array.new(expected_alphabet.length) { |number| encode(number) }
       alphabet = first_encodings.map(&:chars).map(&:to_a).flatten.uniq
-      
+
       alphabet.should == expected_alphabet
     end
 

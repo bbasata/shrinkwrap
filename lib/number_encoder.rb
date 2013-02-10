@@ -6,7 +6,7 @@ module NumberEncoder
     # Ensure that codes are sparse by ensuring the last two characters of the base 'n' number
     # are different for encode(n) and encode(n + 1)
     number = number * (ALPHABET.length + 1)
-    number.zero? ? ALPHABET.first : number.b(ALPHABET).to_s
+    number.b(ALPHABET).to_s
   end
 
   def self.normalize(code)
