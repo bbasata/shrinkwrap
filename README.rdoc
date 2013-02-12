@@ -1,3 +1,7 @@
+{<img src="https://travis-ci.org/bbasata/shrinkwrap.png?branch=master" alt="Build Status" />}[https://travis-ci.org/bbasata/shrinkwrap]
+
+{<img src="https://codeclimate.com/github/bbasata/shrinkwrap.png" />}[https://codeclimate.com/github/bbasata/shrinkwrap]
+
 == shrinkwrap
 
 shorten all the URLs!
