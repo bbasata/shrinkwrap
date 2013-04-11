@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.7'
+gem 'rails', '~> 4.0.0.beta1'
 gem 'pg'
 gem 'radix', '~>2.1.1'
 
