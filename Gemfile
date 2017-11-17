@@ -4,6 +4,8 @@ gem 'rails', '~> 4.0.0.beta1'
 gem 'pg'
 gem 'radix', '~>2.1.1'
 
+gem 'rake', '~>10.0.4'
+
 group :test, :development do
   gem 'rspec-rails', '~>2.11.0'
   gem 'rspec-given', '~>2.0.0'
