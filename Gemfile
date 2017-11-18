@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0.beta1'
+gem 'rails', '~>4.1.0'
 gem 'pg'
 gem 'radix', '~>2.1.1', require: 'radix/integer'
 
