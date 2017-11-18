@@ -1,4 +1,5 @@
 require 'number_encoder'
+require 'text/levenshtein'
 
 describe NumberEncoder do
   describe '#encode' do
@@ -7,11 +8,11 @@ describe NumberEncoder do
     end
 
     it 'produces a short string given a large number' do
-      encode(1_000_000_000).length.should be <= 7 
+      expect(encode(1_000_000_000).length).to be <= 7
     end
 
     it 'produces a lexicographically larger value for a larger number' do
-      encode(1_000_000_000).should be > encode(999_999_999)
+      expect(encode(1_000_000_000)).to be > encode(999_999_999)
     end
 
     it 'uses the alphabet 0-9 and A-Z except the numbers 0 and 1, to avoid confusion with the letters O and I' do
@@ -21,13 +22,13 @@ describe NumberEncoder do
       first_encodings = Array.new(expected_alphabet.length) { |number| encode(number) }
       alphabet = first_encodings.map(&:chars).map(&:to_a).flatten.uniq
 
-      alphabet.should == expected_alphabet
+      expect(alphabet).to eq expected_alphabet
     end
 
     context 'producing sparse values that differ in at least 2 characters' do
-      example { Text::Levenshtein.distance(encode(999_999_999), encode(999_999_998)).should be >= 2 }
-      example { Text::Levenshtein.distance(encode(999_999_998), encode(999_999_997)).should be >= 2 }
-      example { Text::Levenshtein.distance(encode(999_999_997), encode(999_999_996)).should be >= 2 }
+      example { expect(Text::Levenshtein.distance(encode(999_999_999), encode(999_999_998))).to be >= 2 }
+      example { expect(Text::Levenshtein.distance(encode(999_999_998), encode(999_999_997))).to be >= 2 }
+      example { expect(Text::Levenshtein.distance(encode(999_999_997), encode(999_999_996))).to be >= 2 }
     end
   end
 
@@ -37,11 +38,11 @@ describe NumberEncoder do
     end
 
     it 'replaces the number 0 with the letter O' do
-      normalize('0RIGAMI').should == 'ORIGAMI'
+      expect(normalize('0RIGAMI')).to eq 'ORIGAMI'
     end
 
     it 'replaces the number 1 with the letter I' do
-      normalize('OR1GAM1').should == 'ORIGAMI'
+      expect(normalize('OR1GAM1')).to eq 'ORIGAMI'
     end
   end
 end

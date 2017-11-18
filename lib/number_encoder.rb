@@ -1,3 +1,5 @@
+require 'radix/integer'
+
 module NumberEncoder
   ALPHABET = ('0'..'9').to_a + ('A'..'Z').to_a - ['0', '1']
 
@@ -6,7 +8,7 @@ module NumberEncoder
     # Ensure that codes are sparse by ensuring the last two characters of the base 'n' number
     # are different for encode(n) and encode(n + 1)
     number = number * (ALPHABET.length + 1)
-    number.b(ALPHABET).to_s
+    Radix::Integer.new(number).to_s(ALPHABET)
   end
 
   def self.normalize(code)
