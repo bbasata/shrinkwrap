@@ -7,7 +7,7 @@ gem 'radix', '~>2.1.1', require: 'radix/integer'
 gem 'rake', '~>10.0.4'
 
 group :test, :development do
-  gem 'rspec-rails', '~>2.99.0'
+  gem 'rspec-rails'
   gem 'rspec-given'
   gem 'text', '~>1.2.1'
 end
