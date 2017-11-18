@@ -1,3 +1,5 @@
+require 'radix/integer'
+
 module NumberEncoder
   ALPHABET = ('0'..'9').to_a + ('A'..'Z').to_a - ['0', '1']
 

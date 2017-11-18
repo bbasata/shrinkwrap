@@ -11,7 +11,7 @@ describe UrlShortener do
     ] }
 
     it "returns the next good candidate" do
-      subject.shorten("http://example.com").fetch(:short_path).should == "i am good"
+      expect(subject.shorten("http://example.com").fetch(:short_path)).to eq "i am good"
     end
   end
 
@@ -23,7 +23,7 @@ describe UrlShortener do
     ] }
 
     it "returns the next good candidate" do
-      subject.shorten("http://example.com").fetch(:short_path).should == "i am good"
+      expect(subject.shorten("http://example.com").fetch(:short_path)).to eq "i am good"
     end
   end
 end
