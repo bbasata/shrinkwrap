@@ -37,7 +37,7 @@ describe "Shrinking URLs" do
       shrink("https://github.com/bbasata/shrinkwrap/blob/master/Gemfile"),
       shrink("https://github.com/bbasata/shrinkwrap/blob/master/Rakefile")
     ] }
-    Then { short_urls.uniq.should have(2).distinct_urls }
+    Then { expect(short_urls.uniq.size).to eq 2 }
   end
 
   context "Shrinking the same URL twice" do
@@ -45,7 +45,7 @@ describe "Shrinking URLs" do
       shrink("https://github.com/bbasata/shrinkwrap/blob/master/Gemfile"),
       shrink("https://github.com/bbasata/shrinkwrap/blob/master/Gemfile")
     ] }
-    Then { short_urls.uniq.should have(1).distinct_urls }
+    Then { expect(short_urls.uniq.size).to eq 1 }
   end
 
   context "Correcting mistakes in transcription of 'I' as '1' and 'O' as '0'" do
