@@ -1,8 +1,8 @@
 require 'url_shortener'
 
 describe UrlShortener do
-  let(:bad_words_blacklist) { BadWordsBlacklist.new %w[ bad ] }
-  subject { UrlShortener.new(short_path_candidate_generator, bad_words_blacklist) }
+  let(:bad_words_denylist) { BadWordsDenylist.new %w[ bad ] }
+  subject { UrlShortener.new(short_path_candidate_generator, bad_words_denylist) }
 
   context "when a candidate short path does not contain a bad word" do
     let(:short_path_candidate_generator) { [
