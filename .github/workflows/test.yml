@@ -21,6 +21,6 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Set up database
-      run: apt-get -y install postgresql
+      run: sudo apt-get -y install postgresql
     - name: Run tests
       run: bundle exec rake
