@@ -26,9 +26,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Bootstrap
+      run: bundle install -j4
     - name: Run tests
       run: bundle exec rake
